@@ -1,0 +1,8 @@
+{
+	"name": "Slidev Dockerfile",
+	"context": "..",
+	"dockerFile": "../Dockerfile",
+	"settings": {},
+	"extensions": ["yzhang.markdown-all-in-one","antfu.slidev"],
+	"postCreateCommand": "apt-get update && apt-get install -y curl git",
+}
