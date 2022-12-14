@@ -15,9 +15,9 @@
     npm i
   ```
 
-```bash
-  npm run slidev
-```
+  ```bash
+    npm run slidev
+  ```
 
 - check slide with local browser 
 
