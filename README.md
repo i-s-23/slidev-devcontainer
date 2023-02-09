@@ -1,11 +1,10 @@
 # slidev-docker-env
 
 - version
-  - ~~Docker to `node:16-alpine3.11`~~
     - node
-      - v16.6.2
+      - v19.6.0
     - npm
-      - v7.20.3
+      - v9.4
 
 ## usage
 
