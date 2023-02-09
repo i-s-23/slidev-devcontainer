@@ -1,2 +1,5 @@
-FROM node:16-alpine3.11
-RUN npm i -g @slidev/cli @slidev/theme-default playwright-chromium
+FROM node:19-bullseye
+ENV PLAYWRIGHT_BROWSERS_PATH=0
+WORKDIR /workspace
+COPY . .
+RUN npm i
