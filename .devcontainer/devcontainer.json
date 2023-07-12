@@ -3,8 +3,12 @@
 	"context": "..",
 	"dockerFile": "../Dockerfile",
 	"workspaceFolder": "/workspace",
-	"settings": {},
-	"extensions": ["yzhang.markdown-all-in-one","antfu.slidev"],
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": ["yzhang.markdown-all-in-one","antfu.slidev"]
+		}
+	},
 	"postCreateCommand": "apt-get update && apt-get install -y curl git",
 	"features": {
 		"github-cli": "latest"
