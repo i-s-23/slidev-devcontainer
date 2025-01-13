@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@slidev/cli": "^51.0.0",
+    "@slidev/cli": "^51.0.1",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
     "chromium": "^3.0.3"
