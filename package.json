@@ -6,7 +6,7 @@
     "chromium": "^3.0.3"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.51.0"
+    "playwright-chromium": "^1.51.1"
   },
   "scripts": {
     "slidev": "slidev"
