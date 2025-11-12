@@ -1,4 +1,4 @@
-FROM node:25.1-bookworm
+FROM node:25.2-bookworm
 ENV PLAYWRIGHT_BROWSERS_PATH=0
 WORKDIR /workspace
 COPY . .
