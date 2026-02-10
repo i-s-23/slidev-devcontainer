@@ -9,6 +9,9 @@
     "playwright-chromium": "^1.58.2"
   },
   "scripts": {
-    "slidev": "slidev"
+    "slidev": "slidev",
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
   }
 }

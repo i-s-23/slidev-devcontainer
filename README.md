@@ -21,7 +21,11 @@
 - check slide with local browser 
 
   ```bash
-    npm run slidev test.md
+    pnpm run slidev test.md
+
+    pnpm run slidev test.md -p 8080 --open
+
+    curl -i http://localhost:8080
   ```
 
 - export pdf to slide file 
