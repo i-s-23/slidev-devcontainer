@@ -1,15 +1,23 @@
 {
-	"name": "Slidev Dockerfile",
-	"context": "..",
-	"dockerFile": "../Dockerfile",
-	"workspaceFolder": "/workspace",
+	"name": "Slidev DevContainer",
+	"image": "node:24-bookworm",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"customizations": {
 		"vscode": {
-			"settings": {},
-			"extensions": ["yzhang.markdown-all-in-one","antfu.slidev"]
+			"settings": {
+				"editor.bracketPairColorization.enabled": true,
+				"editor.guides.bracketPairs": "active"
+			},
+			"extensions": [
+				"yzhang.markdown-all-in-one",
+				"antfu.slidev"
+			]
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y curl git",
+	"forwardPorts": [
+		3030
+	],
+	"postCreateCommand": "npx playwright install-deps && npm install -g @google/gemini-cli pnpm",
 	"features": {
 		"github-cli": "latest"
 	}
