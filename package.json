@@ -13,5 +13,10 @@
     "dev": "slidev --open",
     "build": "slidev build",
     "export": "slidev export"
+  },
+  "pnpm": {
+    "overrides": {
+      "dompurify": "^3.3.2"
+    }
   }
 }
