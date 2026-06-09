@@ -249,7 +249,7 @@ jobs:
         if: steps.pkg-manager.outputs.supported == 'true' && steps.check-pr.outputs.skip == 'false'
         run: |
           case "$PKG_MANAGER" in
-            pnpm)   pnpm install --no-frozen-lockfile ;;
+            pnpm)   pnpm install --no-frozen-lockfile --ignore-scripts ;;
             yarn)   yarn install --ignore-engines ;;
             npm)    npm install ;;
             pip)    pip install -r requirements.txt ;;
