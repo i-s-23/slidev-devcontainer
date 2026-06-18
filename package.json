@@ -16,7 +16,8 @@
   },
   "pnpm": {
     "overrides": {
-      "dompurify": "^3.3.2"
+      "dompurify": "^3.3.2",
+      "esbuild": "^0.28.1"
     }
   }
 }
