@@ -5,8 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  dompurify: ^3.3.2
+  dompurify: ^3.4.11
   esbuild: ^0.28.1
+  js-yaml: ^4.2.0
 
 importers:
 
@@ -14,7 +15,7 @@ importers:
     dependencies:
       '@slidev/cli':
         specifier: ^52.16.0
-        version: 52.16.0(@nuxt/kit@3.21.7)(@types/markdown-it@14.1.2)(@types/node@25.2.0)(@vue/compiler-sfc@3.5.35)(lightningcss@1.32.0)(markdown-it-async@2.2.0)(markdown-it@14.2.0)(playwright-chromium@1.60.0)(postcss@8.5.15)(rolldown@1.0.3)
+        version: 52.16.0(@nuxt/kit@3.21.7)(@types/markdown-it@14.1.2)(@types/node@25.2.0)(@vue/compiler-sfc@3.5.35)(lightningcss@1.32.0)(markdown-it-async@2.2.0)(markdown-it@14.2.0)(playwright-chromium@1.61.0)(postcss@8.5.15)(rolldown@1.0.3)
       '@slidev/theme-default':
         specifier: ^0.25.0
         version: 0.25.0
@@ -1184,9 +1185,6 @@ packages:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
 
-  argparse@1.0.10:
-    resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
-
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
@@ -1580,8 +1578,8 @@ packages:
     resolution: {integrity: sha512-gYzvtM72ZtxQO0T048kd6HWSbbGCNOUwcnfQ01cqIJ4X2IYKFFHZ5mKvrQETcFXxsRObZulDaKmy//R7TPtsBg==}
     engines: {node: '>=20.19.0'}
 
-  dompurify@3.4.7:
-    resolution: {integrity: sha512-2jBxDJY4RR06tQNy4w5FlFH7kfxsQZlufd0sbv+chfHCxeJwrFw2baUDsSwvBISD4K4RDbd0PTfy3uNXsR6siA==}
+  dompurify@3.4.11:
+    resolution: {integrity: sha512-zhlUV12GsaRzMsf9q5M254YhA4+VuF0fG+QFqu6aYpoGlKtz+w8//jBcGVYBgQkR5GHjUomejY84AV+/uPbWdw==}
 
   domutils@4.0.2:
     resolution: {integrity: sha512-qI4JLRKnSzqFqr7hAlS5xQDusBCjKSEG4t4+7aNrIQMHBcsC2TGEhuyABJdYkgSewL57PNLYEiibY2iPKhKpaA==}
@@ -1644,11 +1642,6 @@ packages:
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
-
-  esprima@4.0.1:
-    resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
-    engines: {node: '>=4'}
-    hasBin: true
 
   estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
@@ -1906,10 +1899,6 @@ packages:
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-
-  js-yaml@3.14.2:
-    resolution: {integrity: sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg==}
-    hasBin: true
 
   js-yaml@4.2.0:
     resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
@@ -2537,9 +2526,6 @@ packages:
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
-
-  sprintf-js@1.0.3:
-    resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
 
   srvx@0.11.16:
     resolution: {integrity: sha512-bp07zRuycfTY43IjAvvTFnmnJi8ikW0VFiHwOhhYcVW/L4xQ1XY4PAd4Nuum1rsA17C39zL7x+CDhrn5AL32Rw==}
@@ -3610,7 +3596,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@slidev/cli@52.16.0(@nuxt/kit@3.21.7)(@types/markdown-it@14.1.2)(@types/node@25.2.0)(@vue/compiler-sfc@3.5.35)(lightningcss@1.32.0)(markdown-it-async@2.2.0)(markdown-it@14.2.0)(playwright-chromium@1.60.0)(postcss@8.5.15)(rolldown@1.0.3)':
+  '@slidev/cli@52.16.0(@nuxt/kit@3.21.7)(@types/markdown-it@14.1.2)(@types/node@25.2.0)(@vue/compiler-sfc@3.5.35)(lightningcss@1.32.0)(markdown-it-async@2.2.0)(markdown-it@14.2.0)(playwright-chromium@1.61.0)(postcss@8.5.15)(rolldown@1.0.3)':
     dependencies:
       '@antfu/ni': 30.1.0
       '@antfu/utils': 9.3.0
@@ -4445,10 +4431,6 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.2
 
-  argparse@1.0.10:
-    dependencies:
-      sprintf-js: 1.0.3
-
   argparse@2.0.1: {}
 
   ast-kit@2.2.0:
@@ -4860,7 +4842,7 @@ snapshots:
     dependencies:
       domelementtype: 3.0.0
 
-  dompurify@3.4.7:
+  dompurify@3.4.11:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -4907,8 +4889,6 @@ snapshots:
   escape-html@1.0.3: {}
 
   escape-string-regexp@5.0.0: {}
-
-  esprima@4.0.1: {}
 
   estree-walker@2.0.2: {}
 
@@ -5004,7 +4984,7 @@ snapshots:
 
   gray-matter@4.0.3:
     dependencies:
-      js-yaml: 3.14.2
+      js-yaml: 4.2.0
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
@@ -5129,11 +5109,6 @@ snapshots:
   jiti@2.7.0: {}
 
   js-tokens@4.0.0: {}
-
-  js-yaml@3.14.2:
-    dependencies:
-      argparse: 1.0.10
-      esprima: 4.0.1
 
   js-yaml@4.2.0:
     dependencies:
@@ -5447,7 +5422,7 @@ snapshots:
       d3-sankey: 0.12.3
       dagre-d3-es: 7.0.14
       dayjs: 1.11.21
-      dompurify: 3.4.7
+      dompurify: 3.4.11
       es-toolkit: 1.47.0
       katex: 0.16.47
       khroma: 2.1.0
@@ -5604,7 +5579,7 @@ snapshots:
 
   monaco-editor@0.55.1:
     dependencies:
-      dompurify: 3.4.7
+      dompurify: 3.4.11
       marked: 14.0.0
 
   mrmime@2.0.1: {}
@@ -5965,8 +5940,6 @@ snapshots:
   source-map-js@1.2.1: {}
 
   space-separated-tokens@2.0.2: {}
-
-  sprintf-js@1.0.3: {}
 
   srvx@0.11.16: {}
 
