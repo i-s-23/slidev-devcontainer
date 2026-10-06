@@ -8,11 +8,16 @@ overrides:
   dompurify: ^3.4.11
   esbuild: ^0.28.1
   js-yaml: ^4.3.2
-  brace-expansion: ^5.0.8
+  brace-expansion: ^5.0.10
   fast-uri: ^2.4.5
   '@hono/node-server': ^2.0.5
   nanoid: ^5.1.6
   hono: ^4.13.5
+  source-map-js: ^1.2.2
+  postcss-selector-parser: ^7.1.6
+  markdown-it: ^15.0.1
+  image-size: ^2.0.3
+  lodash-es: ^4.18.0
 
 importers:
 
@@ -20,7 +25,7 @@ importers:
     dependencies:
       '@slidev/cli':
         specifier: ^53.0.0
-        version: 53.0.0(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@types/markdown-it@14.2.0)(@types/node@25.2.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(hono@4.12.34)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.0)(oxc-parser@0.150.0)(playwright-chromium@1.63.0)(postcss@8.5.28)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(terser@5.49.2)(vite-plugin-pwa@1.3.0(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))(workbox-build@7.4.1)(workbox-window@7.4.1))
+        version: 53.0.0(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@types/markdown-it@14.2.0)(@types/node@25.2.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(hono@4.12.34)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@15.0.2)(oxc-parser@0.150.0)(playwright-chromium@1.63.0)(postcss@8.5.28)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(terser@5.49.2)(vite-plugin-pwa@1.3.0(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))(workbox-build@7.4.1)(workbox-window@7.4.1))
       '@slidev/theme-default':
         specifier: ^0.25.0
         version: 0.25.0
@@ -598,7 +603,7 @@ packages:
     resolution: {integrity: sha512-btB+klvBi08qRZGeSLbykfD2ROxhLLQJ4+uDI7FjL560ztlzTtBlGmqe6zP49mW/Yp9y39kSWeRS46iEFpGa0w==}
     peerDependencies:
       '@types/markdown-it': '*'
-      markdown-it: ^14.0.0
+      markdown-it: ^15.0.1
 
   '@devframes/hub@0.8.2':
     resolution: {integrity: sha512-3SE+aUy+u1LeMClVK0S9FDmfA3j+kvzgyiIEz7gA+bek0chMuVB0A05ZBdLCZ6E/Tq/CKD7svI7L7ntgStCVew==}
@@ -1702,6 +1707,9 @@ packages:
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
+  argparse@3.0.2:
+    resolution: {integrity: sha512-mFdDM6WqWKraGLsVb+C9CahPnzTXOefAOLq3jYcca2YZ8bEWpr++Tzj+zSaKW9+X9L5uSxcm1AZ3Y6aZJ09OhQ==}
+
   array-buffer-byte-length@1.0.2:
     resolution: {integrity: sha512-LHE+8BuR7RYGDKvnrmcuSq3tDcKv9OFEXQt/HpbZhY7V6h0zlUXutnAD82GiFx9rdieCMjkvtcsPqBwgUl1Iiw==}
     engines: {node: '>= 0.4'}
@@ -1767,8 +1775,8 @@ packages:
   birpc@4.0.0:
     resolution: {integrity: sha512-LShSxJP0KTmd101b6DRyGBj57LZxSDYWKitQNW/mi8GRMvZb078Uf9+pveax1DrVL89vm7mWe+TovdI/UDOuPw==}
 
-  brace-expansion@5.0.9:
-    resolution: {integrity: sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==}
+  brace-expansion@5.0.12:
+    resolution: {integrity: sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==}
     engines: {node: 20 || >=22}
 
   braces@3.0.3:
@@ -2275,10 +2283,6 @@ packages:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
     engines: {node: '>= 0.8'}
 
-  entities@4.5.0:
-    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
-    engines: {node: '>=0.12'}
-
   entities@7.0.1:
     resolution: {integrity: sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==}
     engines: {node: '>=0.12'}
@@ -2598,9 +2602,9 @@ packages:
     resolution: {integrity: sha512-BAg6QkE8W+TuQLrrw0Ugr7HegXduRuuj8/ti2kSOc+jz1dmx8/WNcjr6XGnq5YpDWxFwwaavqD0+jIUOKelTsw==}
     engines: {node: '>= 4'}
 
-  image-size@1.2.1:
-    resolution: {integrity: sha512-rH+46sQJ2dlwfjfhCyNx5thzrv+dtmBIhPHk0zgRUukHzZ/kRueTJXoYYsclBaKcSMBWuGbOFXtioLpzTb5euw==}
-    engines: {node: '>=16.x'}
+  image-size@2.0.4:
+    resolution: {integrity: sha512-QRUkFFsRV/6fuESxb9Vkq+a0LkSrgKXuc2NEqfikiXxxN/G3tjWt5EVUlMaImRBZRZK/jRBEbYvpPYZL8t08Zw==}
+    engines: {node: '>=18'}
     hasBin: true
 
   immediate@3.0.6:
@@ -2964,12 +2968,12 @@ packages:
   linkify-it@5.0.2:
     resolution: {integrity: sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==}
 
+  linkify-it@6.1.0:
+    resolution: {integrity: sha512-wJ/TwpSDTLepCrQoYWYIExIKg5Zchex2Nn5yk2mFnB+6PtdkHtyLx742md9csRjjOnGkKIS/RrbY7l8D6gT9Vw==}
+
   local-pkg@1.2.1:
     resolution: {integrity: sha512-++gUqRDEvcnN6Zhqrr+y/CkVEHhlrR96vZn3nZZPYzMcBUyBtTKzB9NadClFIsIVSsu+3i9tfk/erqy9kAmt7Q==}
     engines: {node: '>=14'}
-
-  lodash-es@4.17.23:
-    resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
 
   lodash-es@4.18.1:
     resolution: {integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==}
@@ -3019,10 +3023,10 @@ packages:
   markdown-it-github-alerts@1.0.1:
     resolution: {integrity: sha512-NNATF4QdoGI07hyCitoB2YqJ1YcNVCKT89ut2VtfFY9rkeFCXe/V2lOonKQLpJiq5DjiZZepf97BJx5xOjFIAw==}
     peerDependencies:
-      markdown-it: '>= 13.0.0'
+      markdown-it: ^15.0.1
 
-  markdown-it@14.3.0:
-    resolution: {integrity: sha512-RCEsPjR+sr0x+AuYp601tKTkgFG4YEPLCzHST3cQ/fhlJkqAkz1L2/Qbp1j9qw5SBwQHFBoW8+hoN5xssOF0Tw==}
+  markdown-it@15.0.2:
+    resolution: {integrity: sha512-q4IGxMv56jCqT4OCRCADBoDP3LO4MhmTXjFbphHPXs4g3j9Xg5RDnxqN8IF/3vIWEU+VCnUq+7JUg/cfy2E6Qw==}
     hasBin: true
 
   markdown-table@3.0.4:
@@ -3376,8 +3380,8 @@ packages:
     peerDependencies:
       postcss: ^8.2.14
 
-  postcss-selector-parser@7.1.5:
-    resolution: {integrity: sha512-KvvtD7SrlBP7dlgkBghEE3r84CABm5SmV2aNcG4oCA+qDnJ/tvKonFVvwWAyyWUEwxuNawdfEAZKP9zM3oZ2Uw==}
+  postcss-selector-parser@7.1.6:
+    resolution: {integrity: sha512-7qASPzhKF2l2KLboRZux8CCTRMdGiV08vWmyKzPz22qZ7ZjQBOeY7rNzNoCLSUiftJ7HUq0GERHmxw/t0dCdMw==}
     engines: {node: '>=4'}
 
   postcss@8.5.28:
@@ -3432,9 +3436,6 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-
-  queue@6.0.2:
-    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
   rc9@3.0.1:
     resolution: {integrity: sha512-gMDyleLWVE+i6Sgtc0QbbY6pEKqYs97NGi6isHQPqYlLemPoO8dxQ3uGi0f4NiP98c+jMW6cG1Kx9dDwfvqARQ==}
@@ -3638,8 +3639,8 @@ packages:
     resolution: {integrity: sha512-RQsvleCbF8cVHEv+xuDGaA4pOizFqJ0GgjtMSRo6oP8pnN7WsigHgVGey6aILRBKv4W2YOMHLqbKdnB6hpB9fw==}
     engines: {node: '>=20.0.0'}
 
-  source-map-js@1.2.1:
-    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+  source-map-js@1.2.2:
+    resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
     engines: {node: '>=0.10.0'}
 
   source-map-support@0.5.21:
@@ -3829,6 +3830,9 @@ packages:
 
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
+
+  uc.micro@3.0.0:
+    resolution: {integrity: sha512-U3PppEkleoTnIfi8BozMx3yju3qc/L6SwqWo2Sw+54PX+PX0q9I+r1Um5HCmqD7n9VDX5/v3vQH/AjA6deDdtw==}
 
   ufo@1.6.4:
     resolution: {integrity: sha512-JFNbkD1Svwe0KvGi8GOeLcP4kAWQ609twvCdcHxq1oSL8svv39ZuSvajcD8B+5D0eL4+s1Is2D/O6KN3qcTeRA==}
@@ -5048,12 +5052,12 @@ snapshots:
     dependencies:
       '@chevrotain/gast': 11.1.2
       '@chevrotain/types': 11.1.2
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
 
   '@chevrotain/gast@11.1.2':
     dependencies:
       '@chevrotain/types': 11.1.2
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
 
   '@chevrotain/regexp-to-ast@11.1.2': {}
 
@@ -5061,11 +5065,11 @@ snapshots:
 
   '@chevrotain/utils@11.1.2': {}
 
-  '@comark/markdown-it@0.3.4(@types/markdown-it@14.2.0)(markdown-it@14.3.0)':
+  '@comark/markdown-it@0.3.4(@types/markdown-it@14.2.0)(markdown-it@15.0.2)':
     dependencies:
       '@types/markdown-it': 14.2.0
       js-yaml: 4.3.2
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
 
   '@devframes/hub@0.8.2(devframe@0.8.2(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5))':
     dependencies:
@@ -5177,14 +5181,14 @@ snapshots:
   '@mdit-vue/plugin-component@3.0.2':
     dependencies:
       '@types/markdown-it': 14.2.0
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
 
   '@mdit-vue/plugin-frontmatter@3.0.2':
     dependencies:
       '@mdit-vue/types': 3.0.2
       '@types/markdown-it': 14.2.0
       gray-matter: 4.0.3
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
 
   '@mdit-vue/types@3.0.2': {}
 
@@ -5526,7 +5530,7 @@ snapshots:
 
   '@shikijs/markdown-it@4.4.3(markdown-it-async@2.2.0)':
     dependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
       shiki: 4.4.3
     optionalDependencies:
       markdown-it-async: 2.2.0
@@ -5567,7 +5571,7 @@ snapshots:
       floating-vue: 5.4.0(@nuxt/kit@3.21.11)(vue@3.5.43(typescript@6.0.3))
       lz-string: 1.5.0
       magic-string: 1.4.1
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
       mdast-util-from-markdown: 2.0.3
       mdast-util-gfm: 3.1.0
       mdast-util-to-hast: 13.2.1
@@ -5583,11 +5587,11 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@slidev/cli@53.0.0(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@types/markdown-it@14.2.0)(@types/node@25.2.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(hono@4.12.34)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.0)(oxc-parser@0.150.0)(playwright-chromium@1.63.0)(postcss@8.5.28)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(terser@5.49.2)(vite-plugin-pwa@1.3.0(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))(workbox-build@7.4.1)(workbox-window@7.4.1))':
+  '@slidev/cli@53.0.0(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@types/markdown-it@14.2.0)(@types/node@25.2.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(hono@4.12.34)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@15.0.2)(oxc-parser@0.150.0)(playwright-chromium@1.63.0)(postcss@8.5.28)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(terser@5.49.2)(vite-plugin-pwa@1.3.0(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))(workbox-build@7.4.1)(workbox-window@7.4.1))':
     dependencies:
       '@antfu/ni': 30.5.0
       '@antfu/utils': 9.3.0
-      '@comark/markdown-it': 0.3.4(@types/markdown-it@14.2.0)(markdown-it@14.3.0)
+      '@comark/markdown-it': 0.3.4(@types/markdown-it@14.2.0)(markdown-it@15.0.2)
       '@iconify-json/carbon': 1.2.27
       '@iconify-json/ph': 1.2.2
       '@iconify-json/svg-spinners': 1.2.4
@@ -5598,7 +5602,7 @@ snapshots:
       '@shikijs/markdown-it': 4.4.3(markdown-it-async@2.2.0)
       '@shikijs/twoslash': 4.4.3(typescript@6.0.3)
       '@shikijs/vitepress-twoslash': 4.4.3(@nuxt/kit@3.21.11)(typescript@6.0.3)
-      '@slidev/client': 53.0.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.0)(oxc-parser@0.150.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))
+      '@slidev/client': 53.0.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@15.0.2)(oxc-parser@0.150.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))
       '@slidev/parser': 53.0.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.11)(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(markdown-it-async@2.2.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))
       '@slidev/types': 53.0.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.11)(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(markdown-it-async@2.2.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))
       '@unocss/extractor-mdc': 66.10.5
@@ -5623,7 +5627,7 @@ snapshots:
       magic-string-stack: 2.0.0
       markdown-exit: 1.3.0
       markdown-it-footnote: 4.0.0
-      markdown-it-github-alerts: 1.0.1(markdown-it@14.3.0)
+      markdown-it-github-alerts: 1.0.1(markdown-it@15.0.2)
       mlly: 1.8.2
       monaco-editor: 0.56.0
       obug: 3.0.0
@@ -5640,7 +5644,7 @@ snapshots:
       resolve-global: 2.0.0
       shiki: 4.4.3
       sirv: 3.0.2
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
       typescript: 6.0.3
       unhead: 3.4.1(rolldown@1.2.9)(rollup@4.62.4)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))
       unocss: 66.10.5(cac@7.0.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))
@@ -5712,7 +5716,7 @@ snapshots:
       - unloader
       - webpack
 
-  '@slidev/client@53.0.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.0)(oxc-parser@0.150.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))':
+  '@slidev/client@53.0.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.11)(@oxc-project/types@0.150.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@15.0.2)(oxc-parser@0.150.0)(rolldown@1.2.9)(rollup@4.62.4)(srvx@1.0.5)(vite@8.3.0(@types/node@25.2.0)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1))':
     dependencies:
       '@antfu/utils': 9.3.0
       '@fix-webm-duration/fix': 1.0.1
@@ -5742,7 +5746,7 @@ snapshots:
       fuse.js: 7.5.0
       katex: 0.18.7
       lz-string: 1.5.0
-      markdown-it-github-alerts: 1.0.1(markdown-it@14.3.0)
+      markdown-it-github-alerts: 1.0.1(markdown-it@15.0.2)
       mermaid: 12.0.0
       monaco-editor: 0.56.0
       nanotar: 0.3.0
@@ -6376,7 +6380,7 @@ snapshots:
       '@vue/shared': 3.5.43
       entities: 7.0.1
       estree-walker: 2.0.2
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   '@vue/compiler-dom@3.5.43':
     dependencies:
@@ -6393,7 +6397,7 @@ snapshots:
       estree-walker: 2.0.2
       magic-string: 0.30.21
       postcss: 8.5.28
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   '@vue/compiler-ssr@3.5.43':
     dependencies:
@@ -6519,6 +6523,8 @@ snapshots:
 
   argparse@2.0.1: {}
 
+  argparse@3.0.2: {}
+
   array-buffer-byte-length@1.0.2:
     dependencies:
       call-bound: 1.0.4
@@ -6599,7 +6605,7 @@ snapshots:
 
   birpc@4.0.0: {}
 
-  brace-expansion@5.0.9:
+  brace-expansion@5.0.12:
     dependencies:
       balanced-match: 4.0.4
     optional: true
@@ -6678,7 +6684,7 @@ snapshots:
       '@chevrotain/regexp-to-ast': 11.1.2
       '@chevrotain/types': 11.1.2
       '@chevrotain/utils': 11.1.2
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
 
   chokidar@3.6.0:
     dependencies:
@@ -6788,7 +6794,7 @@ snapshots:
   css-tree@3.2.1:
     dependencies:
       mdn-data: 2.27.1
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   cssesc@3.0.0: {}
 
@@ -7147,8 +7153,6 @@ snapshots:
   emoji-regex@8.0.0: {}
 
   encodeurl@1.0.2: {}
-
-  entities@4.5.0: {}
 
   entities@7.0.1: {}
 
@@ -7554,9 +7558,7 @@ snapshots:
   ignore@7.0.6:
     optional: true
 
-  image-size@1.2.1:
-    dependencies:
-      queue: 6.0.2
+  image-size@2.0.4: {}
 
   immediate@3.0.6: {}
 
@@ -7897,13 +7899,15 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
+  linkify-it@6.1.0:
+    dependencies:
+      uc.micro: 3.0.0
+
   local-pkg@1.2.1:
     dependencies:
       mlly: 1.8.2
       pkg-types: 2.3.1
       quansync: 0.2.11
-
-  lodash-es@4.17.23: {}
 
   lodash-es@4.18.1: {}
 
@@ -7961,23 +7965,23 @@ snapshots:
   markdown-it-async@2.2.0:
     dependencies:
       '@types/markdown-it': 14.2.0
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
     optional: true
 
   markdown-it-footnote@4.0.0: {}
 
-  markdown-it-github-alerts@1.0.1(markdown-it@14.3.0):
+  markdown-it-github-alerts@1.0.1(markdown-it@15.0.2):
     dependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.2
 
-  markdown-it@14.3.0:
+  markdown-it@15.0.2:
     dependencies:
-      argparse: 2.0.1
-      entities: 4.5.0
-      linkify-it: 5.0.2
+      argparse: 3.0.2
+      entities: 8.0.0
+      linkify-it: 6.1.0
       mdurl: 2.1.0
       punycode.js: 2.3.1
-      uc.micro: 2.1.0
+      uc.micro: 3.0.0
 
   markdown-table@3.0.4: {}
 
@@ -8274,12 +8278,12 @@ snapshots:
 
   minimatch@10.2.6:
     dependencies:
-      brace-expansion: 5.0.9
+      brace-expansion: 5.0.12
     optional: true
 
   minimatch@5.1.9:
     dependencies:
-      brace-expansion: 5.0.9
+      brace-expansion: 5.0.12
     optional: true
 
   minipass@7.1.3:
@@ -8499,9 +8503,9 @@ snapshots:
   postcss-nested@8.0.1(postcss@8.5.28):
     dependencies:
       postcss: 8.5.28
-      postcss-selector-parser: 7.1.5
+      postcss-selector-parser: 7.1.6
 
-  postcss-selector-parser@7.1.5:
+  postcss-selector-parser@7.1.6:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
@@ -8510,7 +8514,7 @@ snapshots:
     dependencies:
       nanoid: 5.1.16
       picocolors: 1.1.1
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   powershell-utils@0.1.0: {}
 
@@ -8520,7 +8524,7 @@ snapshots:
     dependencies:
       '@types/node': 22.20.1
       https: 1.0.0
-      image-size: 1.2.1
+      image-size: 2.0.4
       jszip: 3.10.1
 
   pretty-bytes@5.6.0:
@@ -8552,10 +8556,6 @@ snapshots:
   quansync@1.0.0: {}
 
   queue-microtask@1.2.3: {}
-
-  queue@6.0.2:
-    dependencies:
-      inherits: 2.0.4
 
   rc9@3.0.1:
     dependencies:
@@ -8866,7 +8866,7 @@ snapshots:
   smob@1.6.2:
     optional: true
 
-  source-map-js@1.2.1: {}
+  source-map-js@1.2.2: {}
 
   source-map-support@0.5.21:
     dependencies:
@@ -9108,6 +9108,8 @@ snapshots:
   typescript@6.0.3: {}
 
   uc.micro@2.1.0: {}
+
+  uc.micro@3.0.0: {}
 
   ufo@1.6.4: {}
 
