@@ -19,11 +19,16 @@
       "dompurify": "^3.4.11",
       "esbuild": "^0.28.1",
       "js-yaml": "^4.3.2",
-      "brace-expansion": "^5.0.8",
+      "brace-expansion": "^5.0.10",
       "fast-uri": "^2.4.5",
       "@hono/node-server": "^2.0.5",
       "nanoid": "^5.1.6",
-      "hono": "^4.13.5"
+      "hono": "^4.13.5",
+      "source-map-js": "^1.2.2",
+      "postcss-selector-parser": "^7.1.6",
+      "markdown-it": "^15.0.1",
+      "image-size": "^2.0.3",
+      "lodash-es": "^4.18.0"
     }
   }
 }
