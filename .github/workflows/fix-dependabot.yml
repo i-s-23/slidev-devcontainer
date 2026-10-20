@@ -81,7 +81,8 @@ jobs:
           fi
           echo "fetch_ok=$FETCH_OK" >> "$GITHUB_OUTPUT"
 
-          # ecosystem でフィルタして該当する first_patched_version を取得する
+          # ecosystem とパッケージ名でフィルタして該当する first_patched_version を取得する
+          # （1 つの advisory に lodash / lodash-es のような別パッケージが含まれるため名前も照合する）
           # 配列に変換してから .[0] で取得することで、空ストリームによる jq エラーを回避する
           jq --argjson severity_filter "$SEVERITY_FILTER" '
             [
@@ -92,6 +93,7 @@ jobs:
                 $alert.security_advisory.vulnerabilities[] |
                 select(
                   .package.ecosystem == $alert.dependency.package.ecosystem and
+                  .package.name == $alert.dependency.package.name and
                   .first_patched_version != null
                 ) |
                 .first_patched_version.identifier
@@ -118,6 +120,7 @@ jobs:
                 .security_advisory.vulnerabilities[] |
                 select(
                   .package.ecosystem == $alert.dependency.package.ecosystem and
+                  .package.name == $alert.dependency.package.name and
                   .first_patched_version != null
                 )
               ] | length) == 0 then
