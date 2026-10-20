@@ -225,7 +225,17 @@ jobs:
       - name: パッケージファイルにバージョン制約を適用
         if: steps.pkg-manager.outputs.supported == 'true' && steps.check-pr.outputs.skip == 'false'
         run: |
-          jq -c '.[]' "${RUNNER_TEMP}/alerts.json" | while read -r alert; do
+          # 同一パッケージに複数アラートがある場合は最も高い修正バージョンだけを採用する
+          # アラート順に書き込むと最後の値で上書きされ、低い修正バージョンに戻ってしまうため
+          # 比較はエポック（PEP 440 の N!）を除いた数値セグメントの配列で行う（数字以外は 0 扱い）
+          jq -c '
+            group_by(.pkg) |
+            map(max_by(
+              .fixed | sub("^[0-9]+!"; "") | split(".") |
+              map((capture("^(?<n>[0-9]+)").n // "0") | tonumber)
+            )) |
+            .[]
+          ' "${RUNNER_TEMP}/alerts.json" | while read -r alert; do
             PKG=$(echo "$alert" | jq -r '.pkg')
             FIXED=$(echo "$alert" | jq -r '.fixed')
 
